@@ -1,0 +1,109 @@
+<!-- 5. **Typing Game**  
+    - Create a typing speed game. Display a random word on the screen, and as the user types into an input field, show if the typed word matches the displayed word in real time. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .typing-game {
+            text-align: center;
+        }
+
+        .word-display {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container input {
+            width: 300px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-container input:focus {
+            border-color: #009688;
+        }
+
+        .status {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="typing-game">
+        <div class="word-display" id="word-display">Placeholder</div>
+        <div class="input-container">
+            <input type="text" id="typing-input" placeholder="Type the word here...">
+            <div class="status" id="status"></div>
+        </div>
+    </div>
+
+    <script>
+        const words = ["apple", "banana", "cherry", "dragonfruit", "elephant", "flamingo", "grapefruit", "honeydew", "iguana", "jellyfish"];
+
+        const wd = document.querySelector("#word-display");
+        const inp = document.querySelector('input');
+
+        function setWord() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            wd.textContent = words[randomIndex];
+            wd.classList.remove('correct');
+            inp.value = "";
+        }
+
+        setWord();
+
+        inp.addEventListener('input', () => {
+            let t = wd.textContent;
+            if(inp.value == t) {
+                wd.classList.remove('incorrect');
+                wd.classList.add('correct');
+                setTimeout(setWord, 1000);
+            } else {
+                wd.classList.add('incorrect');
+            }
+        })
+
+    </script>
+</body>
+
+</html>

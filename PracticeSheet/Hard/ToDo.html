@@ -7,8 +7,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .task{
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        .task button{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
-    
+    <div>
+        <label for="task">Add task: </label>
+        <input type="text" name="task" id="task-input">
+        <button type="submit" id="submit-btn">Add task</button>
+    </div>
+
+    <div class="container"></div>
+
+    <script>
+        const inp = document.querySelector('input');
+        const btn = document.querySelector("#submit-btn");
+        const cont = document.querySelector(".container");
+
+        btn.addEventListener('click', () => {
+            const task = document.createElement('div');
+            task.classList.add('task');
+
+            const t = document.createElement('p');
+            t.textContent = inp.value;
+            inp.value = "";
+
+            const del = document.createElement('button');
+            del.textContent = "Delete Task";
+
+            task.appendChild(t);
+            task.appendChild(del);
+            cont.appendChild(task);
+            
+            del.addEventListener('click', () => {
+                del.parentElement.remove();
+            })
+        })
+    </script>
 </body>
 </html>

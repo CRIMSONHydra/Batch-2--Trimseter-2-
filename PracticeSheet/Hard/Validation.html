@@ -1,0 +1,165 @@
+<!-- 6. **Form Validation**  
+    - Create a registration form with fields for "Username", "Email", and "Password". Validate that none of the fields are empty before submission, and show error messages if any are empty. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #009688;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #009688;
+            color: #fff;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+                <div class="error" id="username-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <div class="error" id="email-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <div class="error" id="password-error"></div>
+            </div>
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+
+        const usernameError = document.getElementById('username-error');
+        const emailError = document.getElementById('email-error');
+        const passwordError = document.getElementById('password-error');
+
+        let isValid = [false, false, false];
+
+        username.addEventListener('change', () => {
+            if(username.value.trim() === '') {
+                usernameError.textContent = 'Username is required.';
+                isValid[0] = false;
+            } else {
+                usernameError.textContent = '';
+                isValid[0] = true;
+            }
+        })
+
+        email.addEventListener('change', () => {
+            if(email.value.trim() === '') {
+                emailError.textContent = 'Email is required.';
+                isValid[1] = false;
+            } else {
+                emailError.textContent = '';
+                isValid[1] = true;
+            }
+        })
+
+        password.addEventListener('change', () => {
+            if(password.value.trim() === '') {
+                passwordError.textContent = 'Password is required.';
+                isValid[2] = false;
+            } else {
+                passwordError.textContent = '';
+                isValid[2] = true;
+            }
+        })
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            if(isValid.every(curr => curr)) {
+                alert("Form submitted")
+            } else {
+                alert("Please fill all fields")
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!-- 4. **Image Gallery**  
+    - Create an image gallery with thumbnails. When a thumbnail is clicked, it should display a larger version of the image in a "main" image container. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-image {
+            width: 500px;
+            height: 300px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnails img {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            object-fit: cover;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.1);
+            border-color: #009688;
+        }
+
+        .thumbnails img.active {
+            border-color: #009688;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div class="main-image">
+            <img src="https://via.placeholder.com/500x300.png?text=Main+Image" alt="Main Image" id="main-image">
+        </div>
+        <div class="thumbnails">
+            <img src="https://via.placeholder.com/100x60.png?text=1" alt="Thumbnail 1" class="thumbnail" data-full="https://via.placeholder.com/500x300.png?text=Image+1">
+            <img src="https://via.placeholder.com/100x60.png?text=2" alt="Thumbnail 2" class="thumbnail" data-full="https://via.placeholder.com/500x300.png?text=Image+2">
+            <img src="https://via.placeholder.com/100x60.png?text=3" alt="Thumbnail 3" class="thumbnail" data-full="https://via.placeholder.com/500x300.png?text=Image+3">
+        </div>
+    </div>
+
+    <script>
+        const main = document.querySelector('#main-image');
+        const images = document.querySelectorAll('.thumbnail');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                let url = image.getAttribute('data-full');
+                main.setAttribute('src', url);
+            })
+        })
+    </script>
+</body>
+
+</html>

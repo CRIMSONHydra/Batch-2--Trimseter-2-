@@ -1,0 +1,76 @@
+<!-- 2. **Modal Window**  
+    - Write a function to create a simple modal pop-up. When a button with the ID `open-modal` is clicked, the modal should appear with a close button to dismiss it. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .modal{
+            background-color: aliceblue;
+            display: flex column;
+            width: 50%;
+            height: 50%;
+            justify-content: space-between;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            border: 1px solid gray;
+            margin: 10px;
+        }
+
+        .modal-top{
+            display: flex;
+            background-color: red;
+            flex: 10%;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .modal-content{
+            flex: 80%;
+            background-color: blue;
+            display: flex;
+            color: white;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .modal-footer{
+            flex: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal">
+        <div class = "modal-top">
+            <span>Title</span>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-content">Content</div>
+        <div class="modal-footer">Footer</div>
+    </div>
+
+    <button>button</button>
+
+    <script>
+        const btn = document.querySelector('button');
+        const modal = document.querySelector('.modal');
+        btn.addEventListener('click', () =>{
+            modal.style.display = "block";
+            btn.style.display = "none";
+        })
+
+        const close = document.querySelector('.close');
+        close.addEventListener('click', () => {
+            modal.style.display = "none";
+            btn.style.display = "block";
+        })
+    </script>
+</body>
+</html>
