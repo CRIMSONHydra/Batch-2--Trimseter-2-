@@ -1,0 +1,114 @@
+<!-- 1. **Create a List**  
+    - Write a function that dynamically creates an unordered list (`<ul>`) with 5 items (`<li>`) labeled "Item 1", "Item 2", ..., "Item 5" and appends it to a container with the ID `list-container`.
+
+2. **Update Multiple Elements**  
+    - Write a function to change the text of all elements with the class `update-text` to "Updated Successfully!".
+
+3. **Event Delegation**  
+    - Add an event listener to a parent `<ul>` with the ID `parent-list` so that any time a child `<li>` is clicked, it logs "List item clicked!" to the console.
+
+4. **Show/Hide Element**  
+    - Write a function that hides an element with the ID `popup-box` when a button with the ID `close-popup` is clicked.
+
+5. **Dynamic Table Creation**  
+    - Write a function that creates a 3x3 table and appends it to an element with the ID `table-container`.
+
+6. **Disable Button**  
+    - Write a function that disables a button with the ID `submit-btn` after it is clicked once.
+
+7. **Text Input Event**  
+    - Write a function that updates the text of an `<h2>` with the ID `dynamic-title` as the user types into an input with the ID `title-input`.
+
+8. **Remove All Children**  
+    - Write a function to remove all child elements from an element with the ID `content-area`.
+
+9. **Dynamic Countdown**  
+    - Create a countdown timer that displays the time left (in seconds) inside an element with the ID `countdown` and counts down from 10 to 0, updating every second.
+
+10. **Add Class to Multiple Elements**  
+    - Write a function that adds the class `error-message` to all `<p>` tags inside a div with the class `error-container`. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            max-width: 20%;
+        }
+
+        .error-message{
+            background-color: red;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="list-container"></div>
+
+    <button id="q1">Append lists</button>
+
+    <div>
+        <p class="update-text">Change Me</p>
+        <p class="update-text">Change Me</p>
+        <p class="update-text">Change Me</p>
+        <p class="update-text">Change Me</p>
+        <p class="update-text">Change Me</p>
+    </div>
+
+    <button id="q2">Update text</button>
+
+    <ul id="parent-list">
+        <li>list element</li>
+        <li>list element</li>
+        <li>list element</li>
+        <li>list element</li>
+    </ul>
+
+    <div>
+        <h1 id="popup">POP UP</h1>
+    </div>
+
+    <button id="close-popup">Close Popup</button>
+
+    <div id="table-container">
+        <h3>Table</h3>
+    </div>
+
+    <button id="q5">Table</button>
+
+    <hr>
+
+    <button id="submit-btn">Use once</button>
+    <button disabled>disabled btn</button>
+
+    <h2 id="dynamic-title">.</h2>
+    <label for="dynamic-title">Change heading: </label>
+    <input type="text" name="title-input" id="title-input">
+
+    <div id="content-area">
+        <p>child</p>
+        <p>child</p>
+        <p>child</p>
+        <p>child</p>
+        <p>child</p>
+        <p>child</p>
+    </div>
+
+    <button id="q8">Remove children</button>
+
+    <div id="error-container">
+        <p>Error</p>
+        <p>Error</p>
+        <p>Error</p>
+        <p>Error</p>
+        <p>Error</p>
+    </div>
+
+    <button id="q10">q10</button>
+
+    <script src="medium.js" defer></script>
+</body>
+</html>
