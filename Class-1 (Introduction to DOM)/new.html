@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color:blanchedalmond;
+        }
+
+
+        .container{
+            display: flex column;
+            width: 100%;
+        }
+
+        .score{
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .btn {
+            flex: 9;
+            background-color: aqua;
+            min-height: 500px;
+            max-height: 700px;
+            position: relative;
+
+        }
+
+        button{
+            position: fixed;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.querySelector('button');
+            const scr = document.querySelector('.score');
+            const cont = document.querySelector('.btn');
+            let score = 0;
+
+            btn.addEventListener('mousedown', () => {
+                score++;
+                scr.innerText = "Score: " + score;
+            })
+
+            cont.addEventListener('click', () => {
+                score--;
+                scr.innerText = "Score: " + score;
+            })
+
+
+
+            setInterval(f1, 700);
+
+            function f1() {
+                btn.style.left = Math.floor(Math.random() * 1000) + 50 + "px";
+                btn.style.top = Math.floor(Math.random() * 400) + 50 + "px";
+            };
+        })
+
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        <div class="score">Score: 0</div>
+
+        <div class="btn">
+        </div>
+
+        <button>Click Me</button>
+
+    </div>
+    
+    
+</body>
+</html>
