@@ -154,6 +154,8 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             if(isValid.every(curr => curr)) {
+                alert(e);
+                console.log(e);
                 alert("Form submitted")
             } else {
                 alert("Please fill all fields")

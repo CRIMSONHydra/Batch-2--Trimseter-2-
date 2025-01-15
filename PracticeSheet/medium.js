@@ -70,7 +70,7 @@ input.addEventListener('input', () => {
 const cont = document.querySelector("#content-area");
 document.querySelector("#q8").addEventListener('click', () => {
     // cont.innerHTML = "";
-    cont.replaceChildren(p);
+    cont.replaceChildren();
 })
 
 //Q10
