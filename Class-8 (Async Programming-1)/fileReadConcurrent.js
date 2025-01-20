@@ -32,3 +32,7 @@ FileSystem.readFile("f2.txt", function (err , data) {
 
 
 console.log("End");
+
+XMLDocument.f((err, data) => {
+   
+})
