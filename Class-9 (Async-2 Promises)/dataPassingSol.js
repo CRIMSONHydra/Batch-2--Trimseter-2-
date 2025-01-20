@@ -1,5 +1,5 @@
 let cleanRoom = function () {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     // 50% chance of success
     if (Math.random() < 0.5) {
       resolve("Cleaned The Room");
@@ -11,7 +11,7 @@ let cleanRoom = function () {
 };
 
 let removeGarbage = function (message) {
-  return new Promise(function (resolve, reject) {
+  return new Promise((resolve, reject) => {
     // 50% chance of success
     if (Math.random() < 0.5) {
       resolve(message + " then removed Garbage");
@@ -23,7 +23,7 @@ let removeGarbage = function (message) {
 };
 
 let winIcecream = function (message) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(resolve => {
     resolve(message + " then won Icecream");
   });
 };
